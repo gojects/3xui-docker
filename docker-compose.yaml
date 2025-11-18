@@ -1,22 +1,16 @@
-version: "1.0"
+version: "1.1"
 
 services:
   3xui:
     image: ghcr.io/mhsanaei/3x-ui:latest
-    container_name: 3xui
     restart: unless-stopped
 
     environment:
       XRAY_VMESS_AEAD_FORCED: "false"
       XUI_ENABLE_FAIL2BAN: "true"
 
-    volumes:
-      - ./db:/etc/x-ui
-      - ./cert:/root/cert
-
     ports:
       - "2053:2053/tcp"
-
       - "30000:30000/tcp"
       - "30000:30000/udp"
       - "30001:30001/tcp"
